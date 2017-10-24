@@ -35,6 +35,7 @@ public class Challenge1 {
         //this only takes into account someone having one first name
         String lastName = null;
         int spaceDelimiter = -1;
+        try {
         for (int allCharsInFullName = 0; allCharsInFullName < fullName.length(); allCharsInFullName++) {
             if (fullName.charAt(allCharsInFullName) == ' ') {
                 spaceDelimiter = allCharsInFullName;
@@ -55,5 +56,11 @@ public class Challenge1 {
         // Your code goes here.
         return lastName;
     }
+    } catch (IllegalArgumentException iae) {
+    
+}
+}
+    
+
 
 }

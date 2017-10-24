@@ -1,5 +1,6 @@
 package lab2;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -8,7 +9,7 @@ import javax.swing.JOptionPane;
  * @author  Jim Lombardo, jlombardo@wctc.edu
  * @version 1.00
  */
-public class InputOutputGui {
+public class InputOutputGui extends JFrame {
     private NameService nameService;
 
     public InputOutputGui() {
@@ -24,6 +25,12 @@ public class InputOutputGui {
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
         
+    }
+    public void displayException(Exception iae) {
+         JOptionPane.showMessageDialog(this,
+            iae.getMessage(),
+            "Data Entry Error",
+            JOptionPane.ERROR_MESSAGE );
     }
      
 }

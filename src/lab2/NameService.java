@@ -1,5 +1,7 @@
 package lab2;
 
+import javax.swing.JOptionPane;
+
 /**
  * This class provides various services relating to name manipulation.
  * No output should be performed here.
@@ -18,13 +20,33 @@ public class NameService {
      * @throws IllegalArgumentException if fullName is null or empty or has 
      * fewer than two parts
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
+//this only takes into account someone having one first name
         String lastName = null;
-        
-        // write your code here to extract the lastName and store in the
-        // above local variable
-        
+        int spaceDelimiter = -1;
+        try {
+        for (int allCharsInFullName = 0; allCharsInFullName < fullName.length(); allCharsInFullName++) {
+            if (fullName.charAt(allCharsInFullName) == ' ') {
+                spaceDelimiter = allCharsInFullName;
+                break;
+            }
+        }
+        if (spaceDelimiter != -1) {
+            StringBuilder extractedLastName = new StringBuilder();
+            for (int allCharsInLastName = spaceDelimiter +1; allCharsInLastName < fullName.length(); allCharsInLastName++) {
+                extractedLastName.append(fullName.charAt(allCharsInLastName));
+            }
+            lastName = extractedLastName.toString();
+        }
+        if (lastName == null || lastName.length() == 0) {
+            throw new IllegalArgumentException("Please enter a first and last name");
+        }
+
+        // Your code goes here.
         return lastName;
+    } catch(IllegalArgumentException iae) {
+       throw new IllegalArgumentException("Please enter a first and last name");
+    }
     }
     
 
