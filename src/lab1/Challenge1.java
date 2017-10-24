@@ -15,9 +15,7 @@ import javax.swing.JOptionPane;
  * @author Jim Lombardo, jlombardo@wctc.edu
  * @version 1.00
  */
-public class Challenge1 {
-
-    private static final int LAST_NAME_IDX = 1;
+public class Challenge1 { 
 
     // this method responsible for output
     public static void main(String[] args) {
@@ -49,6 +47,9 @@ public class Challenge1 {
                 extractedLastName.append(fullName.charAt(allCharsInLastName));
             }
             lastName = extractedLastName.toString();
+        }
+        if (lastName == null || lastName.length() == 0) {
+            throw new IllegalArgumentException("Please enter a first and last name");
         }
 
         // Your code goes here.
