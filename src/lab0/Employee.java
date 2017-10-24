@@ -53,10 +53,10 @@ public class Employee {
     }
 
     public final void setDaysVacation(int daysVacation) {
-        if (daysVacation <= minDaysVacation) {
+        if (daysVacation < minDaysVacation) {
             throw new IllegalArgumentException("Value is too small");
         }
-        if (daysVacation >= maxDaysVacation) {
+        if (daysVacation > maxDaysVacation) {
             throw new IllegalArgumentException("Value is too large");
         }
 
