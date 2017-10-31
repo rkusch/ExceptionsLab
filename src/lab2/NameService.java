@@ -24,7 +24,7 @@ public class NameService {
 //this only takes into account someone having one first name
         String lastName = null;
         int spaceDelimiter = -1;
-        try {
+       
         for (int allCharsInFullName = 0; allCharsInFullName < fullName.length(); allCharsInFullName++) {
             if (fullName.charAt(allCharsInFullName) == ' ') {
                 spaceDelimiter = allCharsInFullName;
@@ -39,14 +39,12 @@ public class NameService {
             lastName = extractedLastName.toString();
         }
         if (lastName == null || lastName.length() == 0) {
-            throw new IllegalArgumentException("Please enter a first and last name");
+            throw new IllegalArgumentException("Please enter a valid first and last name");
         }
 
         // Your code goes here.
         return lastName;
-    } catch(IllegalArgumentException iae) {
-       throw new IllegalArgumentException("Please enter a first and last name");
-    }
+   
     }
     
 

@@ -20,17 +20,15 @@ public class InputOutputGui extends JFrame {
         
         String fullName = JOptionPane.showInputDialog("Enter full name:");
         String lastName = "";
+        try {
         lastName = nameService.extractLastName(fullName);
   
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
+        } catch (IllegalArgumentException iae) {
+           JOptionPane.showMessageDialog(null, iae.getMessage()); 
+        
         
     }
-    public void displayException(Exception iae) {
-         JOptionPane.showMessageDialog(this,
-            iae.getMessage(),
-            "Data Entry Error",
-            JOptionPane.ERROR_MESSAGE );
     }
-     
 }

@@ -20,22 +20,26 @@ public class Challenge1 {
     // this method responsible for output
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
-
+        try{
+            
         String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
         String lastName = app.extractLastName(fullName);
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
+        } catch (IllegalArgumentException iae) {
+            System.out.println(iae.getMessage());   
+        }
     }
 
     // write the code to extract the lastName from the fullName
     // Use exception handling to prevent a crash in the event that fullName
     // is null or empty. Throw the exception to the calling method. and handle
     // it there.
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
         //this only takes into account someone having one first name
         String lastName = null;
         int spaceDelimiter = -1;
-        try {
+        
         for (int allCharsInFullName = 0; allCharsInFullName < fullName.length(); allCharsInFullName++) {
             if (fullName.charAt(allCharsInFullName) == ' ') {
                 spaceDelimiter = allCharsInFullName;
@@ -55,12 +59,9 @@ public class Challenge1 {
 
         // Your code goes here.
         return lastName;
-    }
-    } catch (IllegalArgumentException iae) {
+    
+    
     
 }
 }
     
-
-
-}
